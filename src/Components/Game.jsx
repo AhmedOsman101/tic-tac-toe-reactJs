@@ -1,4 +1,10 @@
+// import { useState } from "react";
+import Board from "./Board";
 const Game = () => {
-	return <></>;
+	return (
+		<>
+			<Board />
+		</>
+	);
 };
 export default Game;
