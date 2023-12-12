@@ -1,10 +1,9 @@
 /* eslint-disable react/prop-types */
 /* eslint-disable no-unused-vars */
 /* eslint-disable react/jsx-key */
-import { useState } from "react";
 import Cell from "./Cell";
 
-const Board = ({ cells, circleTurn, onCellClick }) => {
+const Board = ({ cells, onCellClick, changeCell }) => {
 	return (
 		<>
 			<div id="board">
@@ -14,10 +13,10 @@ const Board = ({ cells, circleTurn, onCellClick }) => {
 							key={index}
 							value={cell}
 							onClick={() => onCellClick(index)}
+							changeCell={changeCell}
 						/>
 					);
 				})}
-				{/* {console.table(cells)} */}
 			</div>
 		</>
 	);

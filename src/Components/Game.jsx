@@ -1,7 +1,11 @@
+/* eslint-disable react-hooks/exhaustive-deps */
 /* eslint-disable no-unused-vars */
 import { useState, useEffect } from "react";
 import Board from "./Board";
 import XElement from "./XElement";
+import OElement from "./OElement";
+import GameOver from "./GameOver";
+import GameStats from "./GameStats";
 
 const winningCombos = [
 	[0, 1, 2], // Top row
@@ -21,6 +25,7 @@ const Game = () => {
 	const [cells, setCells] = useState(Array(9).fill(null));
 	const [circleTurn, setCircleTurn] = useState(false);
 	const [winner, setWinner] = useState(null);
+	const [gameStats, setGameStats] = useState(GameStats.inProgress);
 
 	const handleCellClick = (index) => {
 		if (cells[index] !== null || winner) return;
@@ -29,6 +34,12 @@ const Game = () => {
 		circleTurn ? oLocations.push(index) : xLocations.push(index);
 		setCells(newCells);
 		setCircleTurn(!circleTurn);
+	};
+
+	const changeCell = (value) => {
+		if (value == null) return <span className={`fa-${value}`}></span>;
+		if (value == "x") return <XElement />;
+		if (value == "o") return <OElement />;
 	};
 
 	const checkDraw = () => {
@@ -42,8 +53,14 @@ const Game = () => {
 	const checkWinner = () => {
 		for (const combo of winningCombos) {
 			if (combo.every((index) => xLocations.includes(index))) {
+				GameStats.XWon = true;
+				GameStats.XScore++;
+				GameStats.inProgress = false;
 				return "x";
 			} else if (combo.every((index) => oLocations.includes(index))) {
+				GameStats.OWon = true;
+				GameStats.OScore++;
+				GameStats.inProgress = false;
 				return "o";
 			}
 		}
@@ -52,26 +69,30 @@ const Game = () => {
 
 	useEffect(() => {
 		const winner = checkWinner();
-		if (winner) {
-			setWinner(winner);
-			console.log(winner, " won!");
-		} else checkDraw();
+		if (winner) setWinner(winner);
+		else checkDraw();
 	}, [cells]);
 
 	return (
 		<>
 			<div className="title">
 				<h1>Tic Tac Toe</h1>
-				<h2 id="displayScore"></h2>
+				<h2 id="displayScore">
+					{<XElement />}: {GameStats.XScore} -{<OElement />}:{" "}
+					{GameStats.OScore}
+				</h2>
 				<h3 id="playerTurn">
-					Player&apos;S <XElement /> turn
+					Player&apos;s {circleTurn ? <OElement /> : <XElement />}{" "}
+					turn
 				</h3>
 			</div>
 			<Board
 				cells={cells}
 				circleTurn={circleTurn}
 				onCellClick={handleCellClick}
+				changeCell={changeCell}
 			/>
+			<GameOver gameStats={gameStats} />
 		</>
 	);
 };

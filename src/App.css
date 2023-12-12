@@ -97,12 +97,6 @@ svg {
 	cursor: not-allowed;
 }
 
-/* .square .fa-o,
-.square .fa-x {
-	width: 3.125rem;
-	aspect-ratio: 1/1;
-} */
-
 .fa-x {
 	width: 3.125rem;
 	aspect-ratio: 1/1;
@@ -115,16 +109,27 @@ svg {
 	background: url("assets/SVGs/o.svg") no-repeat center;
 }
 
-/* #playerTurn .fa-o,
-#playerTurn .fa-x {
-	all: inherit;
-	width: 1.125rem;
+#displayScore .fa-o,
+#playerTurn .fa-o {
+	width: 1.1rem;
+	margin-left: 5px;
+	margin-right: 5px;
 	aspect-ratio: 1/1;
-	cursor: auto;
-} */
+}
+
+#displayScore .fa-x,
+#playerTurn .fa-x {
+	width: 1rem;
+	margin-left: 5px;
+	margin-right: 5px;
+	aspect-ratio: 1/1;
+}
+.title * {
+	display: flex;
+}
 
 #select-game-mode {
-	/* display: grid; */
+	display: grid;
 	place-items: center;
 	place-content: center;
 	gap: 2rem;
@@ -150,13 +155,6 @@ svg {
 	font-size: 4rem;
 	display: flex;
 	gap: 2rem;
-}
-.show {
-	display: grid;
-}
-
-.hide {
-	display: none;
 }
 
 .text-boxes {
