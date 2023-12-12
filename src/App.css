@@ -97,27 +97,31 @@ svg {
 	cursor: not-allowed;
 }
 
-.square .fa-o,
+/* .square .fa-o,
 .square .fa-x {
 	width: 3.125rem;
 	aspect-ratio: 1/1;
-}
+} */
 
 .fa-x {
+	width: 3.125rem;
+	aspect-ratio: 1/1;
 	background: url("assets/SVGs/x.svg") no-repeat center;
 }
 
 .fa-o {
+	width: 3.125rem;
+	aspect-ratio: 1/1;
 	background: url("assets/SVGs/o.svg") no-repeat center;
 }
 
-#playerTurn .fa-o,
+/* #playerTurn .fa-o,
 #playerTurn .fa-x {
 	all: inherit;
 	width: 1.125rem;
 	aspect-ratio: 1/1;
 	cursor: auto;
-}
+} */
 
 #select-game-mode {
 	/* display: grid; */

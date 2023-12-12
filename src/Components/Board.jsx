@@ -14,10 +14,10 @@ const Board = ({ cells, circleTurn, onCellClick }) => {
 							key={index}
 							value={cell}
 							onClick={() => onCellClick(index)}
-							circleTurn={circleTurn}
 						/>
 					);
 				})}
+				{/* {console.table(cells)} */}
 			</div>
 		</>
 	);
