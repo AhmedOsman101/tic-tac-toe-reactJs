@@ -85,13 +85,6 @@ button:hover {
 #SGMBtns button {
 	display: flex;
 }
-svg {
-	display: inline-block;
-	margin-right: 0.5rem;
-	/* font-size: inherit;
-    width: 1rem;
-    aspect-ratio: 1/1; */
-}
 
 .square:not(:has(.fa-null)) {
 	cursor: not-allowed;
@@ -107,6 +100,26 @@ svg {
 	width: 3.125rem;
 	aspect-ratio: 1/1;
 	background: url("assets/SVGs/o.svg") no-repeat center;
+}
+
+.fa-desktop {
+	background: url("assets/SVGs/desktop.svg") no-repeat center;
+}
+
+.fa-shuffle {
+	background: url("assets/SVGs/shuffle.svg") no-repeat center;
+}
+
+.fa-user {
+	background: url("assets/SVGs/user.svg") no-repeat center;
+}
+
+.fa-desktop,
+.fa-shuffle,
+.fa-user {
+	width: 50px;
+	margin-right: 5px;
+	aspect-ratio: 1/1;
 }
 
 #displayScore .fa-o,
@@ -170,16 +183,16 @@ svg {
 	padding: 1rem 3rem;
 }
 
-.main-btn .btn-group {
+.btn-group {
 	display: flex;
 }
 
-.main-btn .btn-group button {
+.btn-group button {
 	display: flex;
 	align-items: center;
 	width: max-content;
 }
-.main-btn .btn-group button h4 {
+.btn-group button h4 {
 	display: inline-block;
 	width: 100%;
 }

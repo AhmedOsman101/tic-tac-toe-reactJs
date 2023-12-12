@@ -2,6 +2,7 @@
 import GameStats from "./GameStats";
 import XElement from "./XElement";
 import OElement from "./OElement";
+import GameMode from "./GameMode";
 
 export default function GameOver({ gameStats }) {
 	switch (gameStats) {
@@ -15,6 +16,7 @@ export default function GameOver({ gameStats }) {
 						<div id="winningMessage">
 							Player <XElement /> Won!
 						</div>
+						<GameMode />
 					</div>
 				</>
 			);
@@ -26,6 +28,7 @@ export default function GameOver({ gameStats }) {
 						<div id="winningMessage">
 							Player <OElement /> Won!
 						</div>
+						<GameMode />
 					</div>
 				</>
 			);
@@ -34,6 +37,7 @@ export default function GameOver({ gameStats }) {
 				<>
 					<div id="select-game-mode">
 						<div id="winningMessage">It&apos;s a draw!</div>
+						<GameMode />
 					</div>
 				</>
 			);
