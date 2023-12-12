@@ -1,29 +1,26 @@
 /* eslint-disable no-unused-vars */
 /* eslint-disable react/prop-types */
-
-const Cell = ({ current, circleTurn, setCircleTurn, cells, setCells }) => {
-	const XElement = `<span class="fa-x"></span>`;
-	const OElement = `<span class="fa-o"></span>`;
-	function handleClick(e) {
-		const empty = cells[current] == "" ? true : false;
-		if (empty) {
-			changeCell(circleTurn);
-			setCircleTurn(!circleTurn);
-		}
-	}
-	function changeCell(circleTurn) {
-		let CCells = [...cells];
-		CCells[current] = circleTurn ? "O" : "X";
-		setCells(CCells);
-	}
+import XElement from "./XElement";
+import OElement from "./OElement";
+const Cell = ({ value, circleTurn, onClick }) => {
+	// function handleClick(e) {
+	// 	const empty = cells[current] === null ? true : false;
+	// 	if (empty) {
+	// 		changeCell(circleTurn);
+	// 		setCircleTurn(!circleTurn);
+	// 	}
+	// }
+	// function changeCell(value) {
+	// 	{
+	// 		return value == "x" ? <XElement /> : <OElement />;
+	// 	}
+	// }
 
 	return (
 		<>
-			<div
-				className="square"
-				data-current={current}
-				onClick={handleClick}
-			></div>
+			<div className="square" onClick={onClick}>
+				<span className={`fa-${value}`}></span>
+			</div>
 		</>
 	);
 };
