@@ -114,6 +114,8 @@ svg {
 #playerTurn .fa-o,
 #playerTurn .fa-x {
 	all: inherit;
+	width: 1.125rem;
+	aspect-ratio: 1/1;
 	cursor: auto;
 }
 
